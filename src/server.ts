@@ -5,6 +5,7 @@ import { bot } from './http/lib/bot';
 import 'dotenv/config';
 import { startCarrinhoJob } from './http/jobs/carrinho';
 import { startOfertaJob } from './http/jobs/ofertas';
+import { startCupomJob } from './http/jobs/cupons';
 
 const app = express();
 const PORT = process.env.PORT ? Number( process.env.PORT ) : 3000;
@@ -24,6 +25,7 @@ bot.launch()
 
 startOfertaJob();
 startCarrinhoJob();
+startCupomJob();
 
 process.once( 'SIGINT', () => {
     console.log( '🛑 Encerrando com SIGINT...' );
