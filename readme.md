@@ -54,7 +54,7 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
 ```env
 BOT_TOKEN=seu_token_do_telegram
-PORT=3000
+GROUP_ID=id_do_seu_grupo
 ```
 
 > 🔑 Você pode gerar seu token criando um bot com o [@BotFather](https://t.me/BotFather) no Telegram.
@@ -123,4 +123,4 @@ MIT — Faça bom uso e compartilhe.
 ## ✍️ Autor
 
 Desenvolvido por **Rafael Citario 👑**
-🔗 [Seu LinkedIn](https://linkedin.com/in/rafaelcitario)
+🔗 [LinkedIn](https://linkedin.com/in/rafaelcitario)
