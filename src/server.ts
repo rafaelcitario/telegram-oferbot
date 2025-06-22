@@ -7,7 +7,7 @@ import { startCarrinhoJob } from './http/jobs/carrinho';
 import { startOfertaJob } from './http/jobs/ofertas';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || '0.0.0.0';
 
 app.use( cors() );
 app.use( express.json() );
