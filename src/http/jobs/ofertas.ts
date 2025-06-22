@@ -38,7 +38,6 @@ function enviarMensagem () {
 
     bot.telegram.sendMessage( +group_id, mensagem, { parse_mode: 'MarkdownV2' } )
         .then( async ( response ) => {
-            await bot.telegram.pinChatMessage( +group_id, response.message_id );
             console.log( '✅ Oferta enviada' );
         } )
         .catch( err => console.error( '❌ Erro ao enviar oferta:', err ) );
