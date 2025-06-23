@@ -1,3 +1,5 @@
+import path from 'path';
+
 export function randomInt ( min: number, max: number ) {
     return Math.floor( Math.random() * ( max - min + 1 ) ) + min;
 }
@@ -9,4 +11,8 @@ export function gerarCupom () {
         cupom += caracteres.charAt( Math.floor( Math.random() * caracteres.length ) );
     }
     return cupom + 'AF';
+}
+
+export function getAssetPath ( filename: string ) {
+    return path.join( __dirname, '..', '..', 'assets', filename );
 }

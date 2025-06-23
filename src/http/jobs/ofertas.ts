@@ -1,6 +1,6 @@
 import path from 'path';
 import { bot, group_id } from '../lib/bot';
-import { gerarCupom, randomInt } from '../util/functions';
+import { gerarCupom, getAssetPath, randomInt } from '../util/functions';
 
 const categorias = [
     { id: 18, nome: 'Computadores e Acessórios' },
@@ -20,15 +20,12 @@ const categorias = [
 ];
 
 function gerarMensagem ( categoria: any, desconto: number, cupom: string, link: string ) {
-    return `
-🚀 *OFERTA RELÂMPAGO NA SHOPEE* 🚀
-
-💰 Até *${desconto}\\% OFF* em *${categoria.nome}*
-
-🔗 [👉 ACESSE AQUI AGORA 👈](${link})
-🎟️ *CUPOM:* \`${cupom}\`
-⚠️ Estoque limitado\\. Corra antes que acabe\\!
-    `.trim();
+    const modelos = [
+        `🚀 *OFERTA RELÂMPAGO NA SHOPEE* 🚀\n\n💰 Até *${desconto}\\% OFF* em *${categoria.nome}*\n\n🔗 [👉 ACESSE AQUI 👈](${link})\n🎟️ CUPOM: \`${cupom}\`\n⚠️ Corre antes que acabe!`,
+        `🧓🏼 Olha só… Seu Alfredo achou um baita desconto em *${categoria.nome}*! Até *${desconto}\\% OFF*.\n\n🔗 [👉 Dá uma olhada aqui 👈](${link})\n🎟️ Cupom: \`${cupom}\`\n⚠️ Não deixa passar, viu?`,
+        `🌟 Oferta especial do vovô Alfredo! *${desconto}\\% OFF* em *${categoria.nome}*.\n\n🔗 [👉 Vem ver 👈](${link})\n🎟️ Usa o cupom: \`${cupom}\`\n⚠️ É só por pouco tempo!`,
+    ];
+    return modelos[Math.floor( Math.random() * modelos.length )];
 }
 
 function enviarMensagem () {
@@ -43,7 +40,7 @@ function enviarMensagem () {
     const chanceComBanner = Math.random() < 0.6;
 
     if ( chanceComBanner ) {
-        const caminhoBanner = path.join( __dirname, '..', '..', 'assets', 'shopee_banner.jpg' );
+        const caminhoBanner = getAssetPath( 'shopee_banner.jpg' );
         bot.telegram.sendPhoto(
             +group_id,
             { source: caminhoBanner },

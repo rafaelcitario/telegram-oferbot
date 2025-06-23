@@ -3,7 +3,7 @@ import { Request, Response, Router } from 'express';
 const router = Router();
 const botInfo = {
     name: 'alfredo',
-    version: '0.0.1',
+    version: '2.0.0',
     createdBy: {
         name: "Rafael Citario",
         github: "https://github.com/rafaelcitario",
