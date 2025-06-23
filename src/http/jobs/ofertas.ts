@@ -21,9 +21,9 @@ const categorias = [
 
 function gerarMensagem ( categoria: any, desconto: number, cupom: string, link: string ) {
     const modelos = [
-        `🚀 *OFERTA RELÂMPAGO NA SHOPEE* 🚀\n\n💰 Até *${desconto}\\% OFF* em *${categoria.nome}*\n\n🔗 [👉 ACESSE AQUI 👈](${link})\n🎟️ CUPOM: \`${cupom}\`\n⚠️ Corre antes que acabe!`,
-        `🧓🏼 Olha só… Seu Alfredo achou um baita desconto em *${categoria.nome}*! Até *${desconto}\\% OFF*.\n\n🔗 [👉 Dá uma olhada aqui 👈](${link})\n🎟️ Cupom: \`${cupom}\`\n⚠️ Não deixa passar, viu?`,
-        `🌟 Oferta especial do vovô Alfredo! *${desconto}\\% OFF* em *${categoria.nome}*.\n\n🔗 [👉 Vem ver 👈](${link})\n🎟️ Usa o cupom: \`${cupom}\`\n⚠️ É só por pouco tempo!`,
+        `🚀 *OFERTA RELÂMPAGO NA SHOPEE* 🚀\n\n💰 Até *${desconto}\\% OFF* em *${categoria.nome}*\n\n🔗 [👉 ACESSE AQUI 👈](${link})\n🎟️ CUPOM: \`${cupom}\`\n⚠️ Corre antes que acabe\\!`,
+        `🧓🏼 Olha só… Seu Alfredo achou um baita desconto em *${categoria.nome}*\\! Até *${desconto}\\% OFF*.\n\n🔗 [👉 Dá uma olhada aqui 👈](${link})\n🎟️ Cupom: \`${cupom}\`\n⚠️ Não deixa passar, viu?`,
+        `🌟 Oferta especial do vovô Alfredo\\! *${desconto}\\% OFF* em *${categoria.nome}*.\n\n🔗 [👉 Vem ver 👈](${link})\n🎟️ Usa o cupom: \`${cupom}\`\n⚠️ É só por pouco tempo\\!`,
     ];
     return modelos[Math.floor( Math.random() * modelos.length )];
 }
