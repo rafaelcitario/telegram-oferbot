@@ -6,6 +6,8 @@ import 'dotenv/config';
 import { startCarrinhoJob } from './http/jobs/carrinho';
 import { startOfertaJob } from './http/jobs/ofertas';
 import { startCupomJob } from './http/jobs/cupons';
+import { sendExclusiveCupom } from './http/jobs/cupomExclusivo';
+import { startTutorialMLRescue } from './http/jobs/rescueMLCupons';
 
 const app = express();
 const PORT = process.env.PORT ? Number( process.env.PORT ) : 3000;
@@ -26,6 +28,8 @@ bot.launch()
 startOfertaJob();
 startCarrinhoJob();
 startCupomJob();
+sendExclusiveCupom();
+startTutorialMLRescue();
 
 process.once( 'SIGINT', () => {
     console.log( '🛑 Encerrando com SIGINT...' );

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { bot, group_id } from '../lib/bot';
 
-const pastaCupons = path.join( __dirname, '..', '..', 'assets' );
+const pastaCupons = path.join( __dirname, '..', '..', '..', 'assets' );
 
 function lerArquivosDeImagem () {
     return fs.readdirSync( pastaCupons ).filter( file => file.endsWith( '.jpg' ) );
@@ -30,13 +30,13 @@ async function enviarCupomAleatorio () {
     const link = 'https://s.shopee.com.br/3VYh7avafi';
 
     const legenda = `
-⚠️ +𝗖𝗨𝗣𝗢𝗠 𝗟𝗜𝗕𝗘𝗥𝗔𝗗𝗢
+⚠️ *\\+CUPOM LIBERADO*
 
 🎟 R$${valor1} OFF 
 🎟 R$${valor2} OFF 
 
 Resgate Aqui 👇
-${link}
+${link.replaceAll( '.', '\\.' )}
     `.trim();
 
     const caminhoImagem = path.join( pastaCupons, arquivoSorteado );
@@ -45,7 +45,7 @@ ${link}
         await bot.telegram.sendPhoto(
             +group_id,
             { source: caminhoImagem },
-            { caption: legenda }
+            { caption: legenda, parse_mode: 'MarkdownV2' }
         );
         console.log( `✅ Cupom ${arquivoSorteado} enviado com sucesso!` );
     } catch ( error ) {

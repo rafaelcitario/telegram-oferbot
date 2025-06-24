@@ -14,5 +14,5 @@ export function gerarCupom () {
 }
 
 export function getAssetPath ( filename: string ) {
-    return path.join( __dirname, '..', '..', 'assets', filename );
+    return path.join( __dirname, '..', '..', '..', 'assets', filename );
 }
