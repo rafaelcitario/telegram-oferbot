@@ -26,11 +26,11 @@ bot.launch()
     .then( () => console.log( '🤖 Bot do Telegram rodando...' ) )
     .catch( ( err ) => console.error( '❌ Erro ao iniciar o bot:', err ) );
 
-// startOfertaJob();
-// startCarrinhoJob();
-// startCupomJob();
-// sendExclusiveCupom();
-// startTutorialMLRescue();
+startOfertaJob();
+startCarrinhoJob();
+startCupomJob();
+sendExclusiveCupom();
+startTutorialMLRescue();
 envioListaCSV();
 
 
