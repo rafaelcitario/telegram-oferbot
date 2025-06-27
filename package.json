@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+  "start": "ts-node src/server.ts",
   "start:dev": "nodemon src/server.ts",
   "build": "tsc && cp -r assets dist/assets",
   "test": "echo \"Error: no test specified\" && exit 1"
