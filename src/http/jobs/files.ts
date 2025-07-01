@@ -60,17 +60,16 @@ function startCsvJob () {
 
         const title = row[1]?.trim() || 'Produto sem título';
         const originalPrice = parseFloat( row[2]?.replace( /"/g, '' ).replace( ',', '.' ) || '0' );
-        const priceDiscount = parseFloat( row[6]?.replace( /"/g, '' ).replace( ',', '.' ) || '0' );
         const sold = row[3]?.trim() || '0';
         const link = row[8]?.trim() || '';
 
-        if ( isNaN( originalPrice ) || isNaN( priceDiscount ) ) {
+        if ( isNaN( originalPrice ) ) {
             console.warn( 'Linha ignorada: preço inválido.' );
             sendNext();
             return;
         }
 
-        const message = `🧓🏼 *Olha só que achado, meu jovem…*\n\n*${title}*\n\n~De R$${originalPrice.toFixed( 2 )}~\n*Por apenas R$${priceDiscount.toFixed( 2 )}* 💸\n\nJá foram vendidas mais de *${sold}* unidades!\n\n_E não é à toa… é coisa boa, de verdade, viu?_\n\n✨ *Aproveita enquanto ainda dá tempo!* \n👉 ${link}`.trim();
+        const message = `🧓🏼 *Olha só que achado, meu jovem…*\n\n*${title}*\n\n~De R$${( originalPrice + originalPrice * .4 ).toFixed( 2 )}~\n*Por apenas R$${originalPrice.toFixed( 2 )}* 💸\n\nJá foram vendidas mais de *${sold}* unidades!\n\n_E não é à toa… é coisa boa, de verdade, viu?_\n\n✨ *Aproveita enquanto ainda dá tempo!* \n👉 ${link}`.trim();
 
         const animation = 'CgACAgQAAxkBAAP0aF3Gifo8cgAByf3nuTGMKTyWZ1GOAAKkBAACRGD9Ut0AASQIQrmUDDYE';
         await bot.telegram.sendAnimation( group_id, animation, {
